@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,"name": "Reddit Webpage Notifier",
+    "description": "Notifies on all open pages the news, worldnews and technology about reddit top posts",
+    "version": "1.1",
+    "content_scripts": [
+        {   "run_at" :"document_end",
+            "matches": ["https://*/*", "http://*/*"],
+            "exclude_matches" : ["https://www.facebook.com/*","https://nextdoor.com/*"],
+            "js": ["jquery/jquery-ui.min.js","jquery/bootstrap.js","script.js","jquery/underscore-min.js","js/inject.js", "jquery/jquery-confirm.min.js"],
+            "css":["sandisk.css", "css/bootstrap.css"]
+        }],
+    
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "browser_action": {
+        "default_icon": { 
+            "16": "img/16.png",
+            "48": "img/48.png",
+            "128": "img/128.png" }
+    },
+    "web_accessible_resources":["img/*.png", "js/content.js"],
+    "permissions": [  
+        "storage",
+        "activeTab",
+        "tabs"
+    ],
+    "background" : {
+        "scripts" : ["jquery/jquery-ui.min.js","js/background.js"]
+    }
+}
